@@ -1,0 +1,9 @@
+<form [formGroup]="artistForm" (ngSubmit)="onSubmit()">
+  <label for="name">Nom du groupe: </label>
+  <input id="name" type="text" formControlName="name" />
+  <label for="avatar">Avatar: </label>
+  <input id="avatar" type="text" formControlName="avatar" />
+  <p>Complete the form to enable button.</p>
+  <button type="submit" [disabled]="!artistForm.valid">Submit</button>
+</form>
+

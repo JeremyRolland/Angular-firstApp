@@ -1,0 +1,14 @@
+<ul>
+  @for (artist of artists; track artist.id){
+    <li>
+      <app-artist [artist]="artist"> </app-artist>
+      <div>
+        <button (click)="deleteArtistFromList(artist.id)" matFab aria-label="button with a control_point icon">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </li>
+  }
+</ul>
+<app-artist-form-component (newArtist)="handleNewArtist($event)"></app-artist-form-component>
+
