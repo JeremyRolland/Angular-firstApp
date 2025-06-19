@@ -14,11 +14,6 @@ export class Homepage {
   srcHeroPicture: string = "tdt_31072023_kultur_festivals_wacken-open-air.jpg";
 
   greet() {
-    if(!this.elementVisibility) {
-      this.elementVisibility = true;
-    }
-      else if (this.elementVisibility) {
-        this.elementVisibility = false;
-    }
+    this.elementVisibility = !this.elementVisibility;
   }
 }

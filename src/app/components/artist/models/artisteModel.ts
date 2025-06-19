@@ -1,5 +1,5 @@
 export interface ArtisteModel {
-  id: number;
+  id: string;
   name: string;
-  avatar: string;
+  photo: string;
 }
