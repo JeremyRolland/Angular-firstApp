@@ -10,15 +10,15 @@ import {MatFabButton} from '@angular/material/button';
 })
 export class Homepage {
 
-  elementVisibility: string = "none";
+  elementVisibility: boolean = false;
   srcHeroPicture: string = "tdt_31072023_kultur_festivals_wacken-open-air.jpg";
 
   greet() {
-    if(this.elementVisibility == "none") {
-      this.elementVisibility = "block";
+    if(!this.elementVisibility) {
+      this.elementVisibility = true;
     }
-      else if (this.elementVisibility == "block") {
-        this.elementVisibility = "none";
+      else if (this.elementVisibility) {
+        this.elementVisibility = false;
     }
   }
 }

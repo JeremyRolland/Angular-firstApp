@@ -29,7 +29,16 @@ export class ArtistList {
     }
   }
 
-  handleNewArtist(newArtist: ArtisteModel) {
-    console.log("Nouvel artiste ajouté :", newArtist);
+  handleNewArtist(nouvelArtiste: ArtisteModel) {
+    let nouvelId = 1;
+    console.log('Artiste ajouté :', nouvelArtiste);
+    if (this.artists.length > 0) {
+      const dernierArtiste = this.artists[this.artists.length - 1];
+      nouvelId = dernierArtiste.id + 1;
+    }
+
+    nouvelArtiste.id = nouvelId;
+    this.artists.push(nouvelArtiste);
   }
+
 }

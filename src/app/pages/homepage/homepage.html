@@ -5,6 +5,9 @@
     <mat-icon>control_point</mat-icon>
   </button>
 </div>
-<div [style.display]=elementVisibility>
+@if (elementVisibility) {
+  <div>
   <p>Coucou</p>
-</div>
+  </div>
+}
+

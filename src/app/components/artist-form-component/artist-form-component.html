@@ -1,8 +1,9 @@
 <form [formGroup]="artistForm" (ngSubmit)="onSubmit()">
   <label for="name">Nom du groupe: </label>
   <input id="name" type="text" formControlName="name" />
-  <label for="avatar">Avatar: </label>
-  <input id="avatar" type="text" formControlName="avatar" />
+  <label for="avatar">Sélectionner une image:</label>
+  <input type="file"  (change)="onFileSelected($event)" id="avatar" name="avatar" accept="image/*">
+  <input type="submit">
   <p>Complete the form to enable button.</p>
   <button type="submit" [disabled]="!artistForm.valid">Submit</button>
 </form>
