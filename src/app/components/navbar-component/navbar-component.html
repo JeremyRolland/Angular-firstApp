@@ -1,8 +1,8 @@
 <mat-menu #appMenu="matMenu">
-  <button mat-menu-item [routerLink]="'/'">Accueil</button>
-  <button mat-menu-item [routerLink]="'/Artistes'">Artistes</button>
+  <button mat-menu-item data-cy="accueil-button" [routerLink]="'/'">Accueil</button>
+  <button mat-menu-item data-cy="artistes-button" [routerLink]="'/Artistes'">Artistes</button>
 </mat-menu>
 
-<button mat-icon-button [matMenuTriggerFor]="appMenu">
+<button mat-icon-button data-cy="navbar-button" [matMenuTriggerFor]="appMenu">
   <mat-icon>menu</mat-icon>
 </button>

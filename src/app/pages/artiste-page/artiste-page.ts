@@ -4,7 +4,7 @@ import {ArtistFormComponent} from '../../components/artist-form-component/artist
 
 @Component({
   selector: 'app-artiste-page',
-  imports: [ArtistList, ArtistFormComponent],
+  imports: [ArtistList],
   templateUrl: './artiste-page.html',
   styleUrl: './artiste-page.scss'
 })
