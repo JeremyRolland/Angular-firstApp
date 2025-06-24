@@ -2,7 +2,7 @@ describe('The Home Page', () => {
   it('successfully loads', () => {
     cy.visit('/')
     cy.get('[data-cy="add-button"]').should('be.visible');
-    // Vérifie que le texte "Coucou" est apparu
+    // Vérifie que le texte "Coucou" n'existe pas
     cy.get('Coucou').should('not.exist');
     // Clique sur le bouton avec l’icône
     cy.get('[data-cy="add-button"]').click();

@@ -15,11 +15,11 @@ import { ArtistService } from '../artist/services/artist-service';
 export class ArtistList implements OnInit {
 
   artists: ArtisteModel[] = [];
-  errorLoading = false;
+  errorMessage: string = '';
 
   constructor(
     private artistService: ArtistService,
-    private cdr: ChangeDetectorRef // 👈 injecte le détecteur de changement
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit() {
@@ -31,12 +31,12 @@ export class ArtistList implements OnInit {
       next: data => {
         this.artists = [...data];
         console.log('Artistes reçus :', this.artists);
-        this.cdr.detectChanges(); // 👈 force Angular à revalider le template
+        this.cdr.detectChanges();
       },
       error: error => {
-        this.errorLoading = true;
-        console.error('Erreur lors du chargement des artistes :', error);
-        this.cdr.detectChanges(); // 👈 aussi ici pour détecter l’erreur à l’affichage
+        this.errorMessage = error.message;
+        console.error(error);
+        this.cdr.detectChanges();
       }
     });
   }

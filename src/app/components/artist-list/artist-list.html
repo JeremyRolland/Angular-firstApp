@@ -1,7 +1,6 @@
 <ul>
   @for (artist of artists; track artist.id){
-    <li>
-
+    <li data-cy="list-artist">
       <app-artist [artist]="artist"> </app-artist>
       <div>
         <button (click)="deleteArtistFromList(artist.id)" matFab aria-label="button with a control_point icon">
@@ -11,8 +10,9 @@
     </li>
   }
 </ul>
-<div @If(errorLoading) class="alert">
-  Erreur : impossible de charger les artistes.
-</div>
-
+@if(errorMessage) {
+  <div data-cy="erreur-message" style="color: red; margin: 1em 0;">
+    {{ errorMessage }}
+  </div>
+}
 <app-artist-form-component (newArtist)="handleNewArtist($event)"></app-artist-form-component>
