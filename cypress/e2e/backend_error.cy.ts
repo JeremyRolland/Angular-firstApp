@@ -1,5 +1,6 @@
 describe('Affichage erreur backend', () => {
   it('devrait afficher un message d’erreur si le backend échoue', () => {
+    // Charge la page
     cy.visit('/Artistes')
     // Vérifie que le message d'erreur n'est pas affiché
     cy.get('[data-cy="erreur-message"]').should('not.exist');
@@ -9,7 +10,9 @@ describe('Affichage erreur backend', () => {
       body: { message: 'Erreur simulée' }
     }).as('getArtistsError');
     // Attend la génération d'erreur
-    cy.wait('@getArtistsError');
+    cy.wait('@getArtistsError').then((interception) => {
+      expect(interception.response?.statusCode).to.eq(500);
+    });
     // Vérifie que l'erreur est affichée
     cy.get('[data-cy="erreur-message"]').should('be.visible');
     // Vérifie que la liste artistes est vide

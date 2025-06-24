@@ -38,7 +38,7 @@ export class ArtistService {
   }
 
   private handleError(error: HttpErrorResponse) {
-    let message = 'Une erreur est survenue';
+    let message = '';
     if (error.error?.message) {
       message = error.error.message;
     } else if (error.status) {
