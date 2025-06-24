@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {ArtistList} from '../../components/artist-list/artist-list';
-import {ArtistFormComponent} from '../../components/artist-form-component/artist-form-component';
 
 @Component({
   selector: 'app-artiste-page',

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectorRef, inject } from '@angular/core';
 import { Artist } from '../artist/artist';
 import { ArtisteModel } from '../artist/models/artisteModel';
 import { MatFabButton } from '@angular/material/button';
@@ -8,19 +8,19 @@ import { ArtistService } from '../artist/services/artist-service';
 
 @Component({
   selector: 'app-artist-list',
+  standalone: true,
   imports: [Artist, MatFabButton, MatIcon, ArtistFormComponent],
   templateUrl: './artist-list.html',
   styleUrl: './artist-list.scss'
 })
 export class ArtistList implements OnInit {
+  private artistService = inject(ArtistService);
+  private cdr = inject(ChangeDetectorRef);
 
   artists: ArtisteModel[] = [];
-  errorMessage: string = '';
+  errorMessage = '';
 
-  constructor(
-    private artistService: ArtistService,
-    private cdr: ChangeDetectorRef
-  ) {}
+  @Input() addArtist: ArtisteModel | undefined;
 
   ngOnInit() {
     this.loadArtists();
@@ -40,8 +40,6 @@ export class ArtistList implements OnInit {
       }
     });
   }
-
-  @Input() addArtist: ArtisteModel | undefined;
 
   handleNewArtist(nouvelArtiste: ArtisteModel) {
     console.log(`nouvelArtiste: ${JSON.stringify(nouvelArtiste)}`);
